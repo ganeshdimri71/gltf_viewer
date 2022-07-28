@@ -42,7 +42,7 @@ const ThreeScene = () => {
 
       <mesh rotation={[-angleToRadians(90), 0, 0]} receiveShadow>
         <planeGeometry args={[7, 7]} />
-        <meshStandardMaterial color="#1ea3d8" />
+        <meshPhongMaterial color="#1ea3d8" />
       </mesh>
       {/* ambient light */}
       <ambientLight args={["#ffffff", 0.25]} />
