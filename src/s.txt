@@ -1,0 +1,21 @@
+27a8e77 (HEAD -> master) Added a sphere to the scene.
+86d1d89 (HEAD -> master) Creating a mesh for plane geometry and rotating it through 90 degree.
+c77cc2a (HEAD -> master) Moving the yaxis of the perspective camera.
+69d0c01 (HEAD -> master) Setting the orbits controld.
+78e06c6 (HEAD -> master) Setting the azimuthal angle to 90.
+198a464 (HEAD -> master) Setting the min and max polar angle.
+c1ac19f (HEAD -> master) using directional light.
+b17273a point light.
+d9bb781 (HEAD -> master) spotlight  light.
+0b46b94 (HEAD -> master) shadow.
+582d4ca (HEAD -> master) implementing Enviroment.
+ad572d8 (HEAD -> master) view.
+8a12304 (HEAD -> master) view 2.
+cfdee83 (HEAD -> master) view 3.
+5fd02e8 (HEAD -> master) animation.
+3ec5fb7 (HEAD -> master) car model
+d082f33 (HEAD -> master) iphone
+
+
+gltf-pipeline -i scene.gltf -o iiphone.glb --draco.compressionLevel 10 -b
+gltfjsx iphone.glb
