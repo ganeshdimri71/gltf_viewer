@@ -2,6 +2,8 @@ import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import React, { useEffect, useRef } from "react";
 import { angleToRadians } from "../utils/angle";
+import { Environment } from "@react-three/drei/core";
+import * as THREE from "three";
 
 const ThreeScene = () => {
   const orbitControlsRef = useRef(null);
@@ -38,9 +40,7 @@ const ThreeScene = () => {
         <meshStandardMaterial color="#ffffff" />
       </mesh>
 
-          <mesh rotation={[-angleToRadians(90), 0, 0]}
-              receiveShadow
-          >
+      <mesh rotation={[-angleToRadians(90), 0, 0]} receiveShadow>
         <planeGeometry args={[7, 7]} />
         <meshStandardMaterial color="#1ea3d8" />
       </mesh>
@@ -59,6 +59,14 @@ const ThreeScene = () => {
         position={[-3, 1, 0]}
         castShadow
       />
+
+      {/* Enviroment */}
+      <Environment background files={null}>
+        <mesh>
+          <sphereGeometry args={[50, 100, 100]} />
+          <meshBasicMaterial side={THREE.BackSide} color="#2280cc" />
+        </mesh>
+      </Environment>
     </>
   );
 };
