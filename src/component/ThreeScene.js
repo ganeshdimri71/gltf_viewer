@@ -45,7 +45,10 @@ const ThreeScene = () => {
         <meshStandardMaterial color="#1ea3d8" />
       </mesh>
       {/* ambient light */}
-      <ambientLight args={["#ffffff", 1]} />
+          <ambientLight args={["#ffffff", 0.25]} />
+          
+          {/* Directional Light */}
+          <directionalLight args={['#ffffff',1]} position={[-3,1,0]} />
     </>
   );
 };
