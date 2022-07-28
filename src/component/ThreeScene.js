@@ -11,9 +11,7 @@ const ThreeScene = () => {
       const { x, y } = state.mouse;
 
       orbitControlsRef.current.setAzimuthalAngle(-x * angleToRadians(90));
-      orbitControlsRef.current.setPolarAngle(
-        (y + 1) * angleToRadians(90 - 30)
-      );
+      orbitControlsRef.current.setPolarAngle((y + 1) * angleToRadians(90 - 30));
       orbitControlsRef.current.update();
     }
   });
@@ -45,10 +43,13 @@ const ThreeScene = () => {
         <meshStandardMaterial color="#1ea3d8" />
       </mesh>
       {/* ambient light */}
-          <ambientLight args={["#ffffff", 0.25]} />
-          
-          {/* Directional Light */}
-          <directionalLight args={['#ffffff',1]} position={[-3,1,0]} />
+      <ambientLight args={["#ffffff", 0.25]} />
+
+      {/* Directional Light */}
+      {/* <directionalLight args={["#ffffff", 1]} position={[-3, 1, 0]} /> */}
+
+      {/* Point Light */}
+      <pointLight args={["#ffffff", 1]} position={[-3, 1, 0]} />
     </>
   );
 };
