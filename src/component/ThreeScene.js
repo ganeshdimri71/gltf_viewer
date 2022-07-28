@@ -7,7 +7,7 @@ const ThreeScene = () => {
     <>
       <PerspectiveCamera makeDefault position={[0, 1, 5]} />
       {/* Ball */}
-      <mesh>
+      <mesh position={[0,0.5,0]}>
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
