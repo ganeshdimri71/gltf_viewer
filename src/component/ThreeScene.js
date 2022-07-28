@@ -33,12 +33,14 @@ const ThreeScene = () => {
         // enableDamping={false}
       />
       {/* Ball */}
-      <mesh position={[0, 0.5, 0]}>
+      <mesh position={[0, 0.5, 0]} castShadow>
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
 
-      <mesh rotation={[-angleToRadians(90), 0, 0]}>
+          <mesh rotation={[-angleToRadians(90), 0, 0]}
+              receiveShadow
+          >
         <planeGeometry args={[7, 7]} />
         <meshStandardMaterial color="#1ea3d8" />
       </mesh>
@@ -52,9 +54,11 @@ const ThreeScene = () => {
       {/* <pointLight args={["#ffffff", 1]} position={[-3, 1, 0]} /> */}
 
       {/* Spotlight Light */}
-          <spotLight args={["#ffffff", 1.5,7,angleToRadians(45),0.4]} position={[-3, 1, 0]}
-              
-          />
+      <spotLight
+        args={["#ffffff", 1.5, 7, angleToRadians(45), 0.4]}
+        position={[-3, 1, 0]}
+        castShadow
+      />
     </>
   );
 };
