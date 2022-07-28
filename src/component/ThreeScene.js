@@ -4,8 +4,10 @@ import React, { useEffect, useRef } from "react";
 import { angleToRadians } from "../utils/angle";
 import { Environment } from "@react-three/drei/core";
 import * as THREE from "three";
+import gsap from "gsap";
 
 const ThreeScene = () => {
+  // code to move the camera around
   const orbitControlsRef = useRef(null);
   useFrame((state) => {
     // console.log(state.mouse);
@@ -24,6 +26,70 @@ const ThreeScene = () => {
       //   console.log(orbitControlsRef.current);
     }
   }, [orbitControlsRef.current]);
+
+  // Animation
+  const ballRef = useRef(null);
+  useEffect(() => {
+    if (!!ballRef.current) {
+      //   console.log(ballRef.current)
+      // Position Animation X axis motion
+      const timeline = gsap.timeline();
+      gsap.to(ballRef.current.position, {
+        x: 1,
+        duration: 1,
+        ease: "power2.out",
+      });
+
+      // y axis
+      //   gsap.to(ballRef.current.position, {
+      //     y: 0.5,
+      //     duration: 0.75,
+      //     ease: "power2.in",
+      //   }, '>+=3');
+      //   gsap.to(ballRef.current.position, {
+      //     y: 0.5,
+      //     duration: 0.75,
+      //     ease: "power2.in",
+      //   }, '<');
+      timeline.to(
+        ballRef.current.position,
+        {
+          y: 0.5,
+          duration: 1,
+          ease: "bounce.out",
+        },
+        "<"
+      );
+    //   const coefficient = 0.8;
+        // for (let i = 1; i <= 4; i++) {
+        //     // going up
+        //     timeline.to(
+        //         ballRef.current.position,
+        //         {
+        //             y: Math.pow(coefficient, i) * 1.5,
+        //             duration: 0.2,
+        //             ease: "power2.out",
+        //         },
+        //         ">"
+        //     );
+
+        //     // comig back down
+     
+        //     timeline.to(
+        //         ballRef.current.position,
+        //         {
+        //             y: 0.5,
+        //             duration: 0.2,
+        //             ease: "power2.in",
+        //         },
+        //         ">"
+        //     );
+        // }
+
+      // play();
+      timeline.play();
+    }
+  }, [ballRef.current]);
   return (
     <>
       <PerspectiveCamera makeDefault position={[0, 1, 5]} />
@@ -35,7 +101,7 @@ const ThreeScene = () => {
         // enableDamping={false}
       />
       {/* Ball */}
-      <mesh position={[0, 0.5, 0]} castShadow>
+      <mesh position={[-2, 1.5, 0]} castShadow ref={ballRef}>
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
       </mesh>
