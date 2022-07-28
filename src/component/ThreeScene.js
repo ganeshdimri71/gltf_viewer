@@ -1,11 +1,12 @@
-import { PerspectiveCamera } from "@react-three/drei";
+import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
 import React from "react";
 import { angleToRadians } from "../utils/angle";
 
 const ThreeScene = () => {
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 1, 5]} />
+          <PerspectiveCamera makeDefault position={[0, 1, 5]} />
+          <OrbitControls />
       {/* Ball */}
       <mesh position={[0,0.5,0]}>
         <sphereGeometry args={[0.5, 32, 32]} />
