@@ -49,7 +49,12 @@ const ThreeScene = () => {
       {/* <directionalLight args={["#ffffff", 1]} position={[-3, 1, 0]} /> */}
 
       {/* Point Light */}
-      <pointLight args={["#ffffff", 1]} position={[-3, 1, 0]} />
+      {/* <pointLight args={["#ffffff", 1]} position={[-3, 1, 0]} /> */}
+
+      {/* Spotlight Light */}
+          <spotLight args={["#ffffff", 1.5,7,angleToRadians(45),0.4]} position={[-3, 1, 0]}
+              
+          />
     </>
   );
 };
