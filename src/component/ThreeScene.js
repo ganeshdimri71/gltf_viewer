@@ -37,7 +37,7 @@ const ThreeScene = () => {
       {/* Ball */}
       <mesh position={[0, 0.5, 0]} castShadow>
         <sphereGeometry args={[0.5, 32, 32]} />
-        <meshStandardMaterial color="#ffffff" />
+        <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
       </mesh>
 
       <mesh rotation={[-angleToRadians(90), 0, 0]} receiveShadow>
